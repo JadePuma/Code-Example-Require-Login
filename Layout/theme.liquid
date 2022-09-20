@@ -1,0 +1,27 @@
+<html lang="{{ shop.locale }}">
+  <head>
+
+    {% unless customer %}
+      {% if template contains 'customers' %}
+      	{% assign send_to_login = false %}
+      {% else %}
+      	{% assign send_to_login = true %}
+      {% endif %}
+    {% endunless %}
+
+    {% if send_to_login and request.path != "/challenge" %}
+    	<meta content="0; url=/account/login" http-equiv="refresh" />
+    {% else %} 
+
+    <!-- the rest of the <head> section of the file should go here -->
+
+  </head>
+
+  <body>
+
+    <!-- the rest of the <body> section of the file should go here -->
+
+    {% endif %}
+
+  </body>
+</html>   
