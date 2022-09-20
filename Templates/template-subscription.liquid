@@ -1,0 +1,26 @@
+{% if customer.tags contains 'Active Subscriber' %}
+
+<!-- the content from the template goes here -->
+
+{% else %}
+
+<main id="template-{{ template | replace: '.', '-' | handle }}" class="shopify-section default-page">
+  <section class="section__wrapper
+                  section
+                  is-width-standard
+                  ">
+        <div class="container page__container has-padding-top">
+          {% render 'heading',
+              title: "Access not authorized",
+          heading_tag: 'h1',
+          context: 'page',
+          text_alignment: 'center'
+          %}
+        </div>
+        <div class="page__content content container">
+          {% render 'page-multi-column', content: pages.subscription-required.content %}
+        </div>
+  </section>
+</main>
+
+{% endif %}
